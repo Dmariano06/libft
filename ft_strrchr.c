@@ -1,30 +1,24 @@
 #include <string.h>
-int ft_strlen(const char *str)
-{
-    int i;
 
-    i = 0;
-    while(str[i])
-        i++;
-    return i;
-}
-
-char *ft_strrchr(const char *s, int c)
-{
-    const char *res;
+char *ft_strrchr(const char *s, int c) {
+    const char *last = NULL;
+    unsigned char uc = (unsigned char) c;
 
     while (*s != '\0') {
-        if (*s == c)
-            res = s;
+        if (*s == uc) {
+            last = s;
+        }
         s++;
     }
 
-    if (c == '\0') {
+    if (uc == '\0') {
         return (char *)s;
-    } else
-        return (char *)res;
+    }
+
+    return (char *)last;
 }
-#include <stdio.h>
+
+/*#include <stdio.h>
 int main()
 {
     char str[5] = "Hello";
@@ -32,4 +26,4 @@ int main()
     printf("%s", ft_strrchr(str, c));
  //   printf("%s", strrchr(str, c));
 
-}
+}*/

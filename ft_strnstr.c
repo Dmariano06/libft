@@ -23,38 +23,40 @@ int ft_strlen(const char *str)
     }
     return i;
 }
-char *ft_strnstr(const char *big, const char *little, size_t len)
-{
+char *ft_strnstr(const char *big, const char *little, size_t len) {
     size_t len_little = ft_strlen(little);
-    size_t i;
+    size_t i = 0;
 
-    i = 0;
-    if (len_little == 0 || len == 0)
+    if (len_little == 0) {
         return (char *)big;
-    
-    while(i < len && big[i])
-    {
-        if (ft_strncmp(&big[i], little, len_little) == 0)
+    }
+
+    while (i + len_little <= len && big[i]) {
+        if (big[i] == little[0] && ft_strncmp(&big[i], little, len_little) == 0) {
             return (char *)&big[i];
+        }
         i++;
     }
-    return NULL; 
+    return NULL;
 }
+
 /*#include <stdio.h>
+#include <string.h>
 int main() {
     char big[] = "Hello, world!";
-    char little[] = "ld";
-    size_t len = ft_strlen(big);
+    char little[] = "";
+   // size_t len = ft_strlen(big);
 
-    char *ptr = ft_strnstr(big, little, len);
+   // char *ptr = ft_strnstr(big, little, len);
+  //  char *ptr = strnstr(big, little, 0);
    //const char *ptr = strnstr(big, little, len);
 
     if (ptr != NULL) 
     {
-        printf("La sous-chaîne \"%s\" a été trouvée à l'indice %ld de la chaîne.\n", little, ptr - big);
+        printf("%s %ld", little, ptr - big);
     } else 
     {
-        printf("La sous-chaîne \"%s\" n'a pas été trouvée dans la chaîne.\n", little);
+        printf("nothing found %s", little);
     }
 
     return 0;

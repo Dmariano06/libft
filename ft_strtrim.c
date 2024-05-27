@@ -71,7 +71,7 @@ char *ft_strtrim(const char *s1, const char *set)
     return dest;
 }
 
-#include <stdio.h>
+/*#include <stdio.h>
 int main()
 {
     char str[6] = "Hello";
@@ -80,4 +80,4 @@ int main()
     printf("%s", dest);
     free(dest);
     return 0;
-}
+}*/

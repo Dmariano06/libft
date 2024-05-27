@@ -18,7 +18,7 @@ void *ft_memmove(void *dest, const void *src, size_t n)
 
     return dest;
 }
-#include <stdio.h>
+/*#include <stdio.h>
 int main()
 {
     char str[10] = "Hellccdzao";
@@ -26,4 +26,4 @@ int main()
     memmove(dest, str, 8);
     //ft_memmove(dest, str, 8);
     printf("%s", dest);
-}
+}*/
