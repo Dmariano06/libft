@@ -1,38 +1,21 @@
 #include <unistd.h>
 
-void ft_putchar_fd(char c, int fd)
+void	ft_putnbr_fd(int n, int fd)
 {
-    write(fd, &c, 1);
-}
+	char	c;
 
-void ft_putnbr_fd(int n, int fd)
-{
-    if (n == 0)
-    {
-        ft_putchar_fd('0', fd);
-        return;
-    }
-
-    int sign = 1;
-
-    if (n < 0)
-    {
-        sign = -1;
-        n = -n;
-    }
-
-    char buffer[20];
-    int index = 0;
-
-    while (n > 0)
-    {
-        buffer[index++] = (n % 10) + '0';
-        n /= 10;
-    }
-
-    if (sign == -1)
-        ft_putchar_fd('-', fd);
-
-    while (--index >= 0)
-        ft_putchar_fd(buffer[index], fd);
+	if (n == -2147483648)
+	{
+		write(fd, "-2147483648", 11);
+		return;
+	}
+	if (n < 0)
+	{
+		write(fd, "-", 1);
+		n = -n;
+	}
+	if (n > 9)
+		ft_putnbr_fd(n / 10, fd);
+	c = (n % 10) + '0';
+	write(fd, &c, 1);
 }

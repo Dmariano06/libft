@@ -8,7 +8,7 @@ SRCS =  \
        ft_strmapi.c ft_isascii.c ft_isprint.c ft_toupper.c ft_tolower.c\
        ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c ft_strlcpy.c\
        ft_strlcat.c ft_atoi.c ft_strdup.c ft_split.c ft_substr.c\
-       ft_strjoin.c ft_putchar_fd.c ft_striteri.c\
+       ft_strjoin.c ft_putchar_fd.c ft_striteri.c ft_itoa.c\
 
 OBJS = ${SRCS:.c=.o}
 NAME = libft.a
